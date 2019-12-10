@@ -2,13 +2,14 @@ package sa.com.domain;
 
 import lombok.Builder;
 import lombok.Data;
-import sa.com.domain.RoleDto;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 @Data
 @Builder
-public class UserDto {
+public class UserDto implements Serializable {
+
    private String name;
    private String password;
    private Long id;

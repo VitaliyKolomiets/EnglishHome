@@ -12,8 +12,7 @@ public enum RoleDto {
     ADMIN("ADMIN"),
     USER("USER");
 
-    RoleDto(String user) {
-
+    RoleDto(String admin) {
     }
 
     public static RoleDto parse(String value) {
