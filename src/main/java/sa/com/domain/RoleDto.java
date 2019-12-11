@@ -2,6 +2,7 @@ package sa.com.domain;
 
 
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,10 +11,11 @@ import java.util.List;
 public enum RoleDto {
 
     ADMIN("ADMIN"),
-    USER("USER");
+    USER_CONSUMER("USER_CONSUMER"),
+    USER_PRODUCER("USER_PRODUCER");
 
-    RoleDto(String admin) {
-    }
+    @Getter
+    private String key;
 
     public static RoleDto parse(String value) {
         RoleDto role = null;

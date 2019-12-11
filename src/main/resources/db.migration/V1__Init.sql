@@ -1,7 +1,7 @@
 create sequence hibernate_sequence
 ;
 
-create table users
+create table if not exists users
 (
   id bigint not null
     constraint users_pkey
@@ -10,6 +10,6 @@ create table users
   phone varchar(255),
   email varchar(255),
   password varchar(255),
-  role_dto varchar(255)
+  role_user varchar(255)
 )
 ;
