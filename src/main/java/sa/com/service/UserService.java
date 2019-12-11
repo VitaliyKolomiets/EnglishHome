@@ -19,6 +19,7 @@ public class UserService {
     public UserDto createUser(UserDto userDto) {
 
         UserEntity userEntity = userAssembler.toEntity(userDto);
-        return userAssembler.toDTO(usersRepository.save(userEntity));
+        UserEntity  userEntity1 = usersRepository.save(userEntity);
+        return userAssembler.toDTO(userEntity1);
     }
 }
