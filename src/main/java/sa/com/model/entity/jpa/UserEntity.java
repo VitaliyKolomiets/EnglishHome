@@ -24,7 +24,7 @@ public class UserEntity implements Serializable {
     private Long id;
 
     @Column
-    private String name;
+    private String companyName;
 
     @Column
     private String phone;

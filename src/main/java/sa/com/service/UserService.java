@@ -31,6 +31,18 @@ public class UserService {
         return userDtos;
     }
 
+    public UserDto getUser(String companyName) {
+        UserEntity userEntity = usersRepository.getUserByCompanyName(companyName);
+        UserDto userDto = userAssembler.toDTO(userEntity);
+
+        return userDto;
+    }
+
+    public UserDto updateUser(UserDto userDto){
+        UserEntity userEntity = userAssembler.toEntity(userDto);
+        return userAssembler.toDTO(usersRepository.save(userEntity));
+    }
+
     public void deleteUsers(Long id) {
             usersRepository.deleteById(id);
 
