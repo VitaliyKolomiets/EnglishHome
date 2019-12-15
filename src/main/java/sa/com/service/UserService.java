@@ -8,6 +8,8 @@ import sa.com.domain.UserDto;
 import sa.com.model.entity.jpa.UserEntity;
 import sa.com.repository.jpa.UsersRepository;
 
+import java.util.List;
+
 @Slf4j
 @Service
 @RequiredArgsConstructor
@@ -20,5 +22,18 @@ public class UserService {
 
         UserEntity userEntity = userAssembler.toEntity(userDto);
         return userAssembler.toDTO(usersRepository.save(userEntity));
+    }
+
+    public List<UserDto> getUsers() {
+
+        List<UserEntity> userEntities = usersRepository.findAll();
+        List<UserDto> userDtos = userAssembler.toDTOs(userEntities);
+
+        return userDtos;
+    }
+
+    public void deleteUsers(Long id) {
+            usersRepository.deleteById(id);
+
     }
 }

@@ -1,12 +1,12 @@
 package sa.com.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import sa.com.domain.UserDto;
+import sa.com.model.entity.jpa.UserEntity;
 import sa.com.service.UserService;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api")
@@ -18,5 +18,17 @@ public class UserController {
     @PostMapping("/user")
     public UserDto createUser(@RequestBody UserDto userDto) {
        return userService.createUser(userDto);
+    }
+
+    @GetMapping("/user")
+    public List<UserDto> getUsers() {
+        List<UserDto> users = userService.getUsers();
+        return users;
+    }
+
+    @DeleteMapping("/user")
+    public void deleteUser(@PathVariable("id") Long Id) {
+        List<UserDto> users = userService.getUsers();
+
     }
 }
