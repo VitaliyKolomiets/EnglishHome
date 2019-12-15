@@ -19,7 +19,6 @@ public class UserService {
     private final UsersRepository usersRepository;
 
     public UserDto createUser(UserDto userDto) {
-
         UserEntity userEntity = userAssembler.toEntity(userDto);
         return userAssembler.toDTO(usersRepository.save(userEntity));
     }
