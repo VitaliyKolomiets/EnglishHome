@@ -23,19 +23,14 @@ public class UserService {
         return userAssembler.toDTO(usersRepository.save(userEntity));
     }
 
-    public List<UserDto> getUsers() {
-
+    public List<UserDto> getAllUser() {
         List<UserEntity> userEntities = usersRepository.findAll();
-        List<UserDto> userDtos = userAssembler.toDTOs(userEntities);
-
-        return userDtos;
+        return userAssembler.toDTOs(userEntities);
     }
 
-    public UserDto getUser(String companyName) {
+    public UserDto getUserByCompanyName(String companyName) {
         UserEntity userEntity = usersRepository.getUserByCompanyName(companyName);
-        UserDto userDto = userAssembler.toDTO(userEntity);
-
-        return userDto;
+        return userAssembler.toDTO(userEntity);
     }
 
     public UserDto updateUser(UserDto userDto){
@@ -43,8 +38,7 @@ public class UserService {
         return userAssembler.toDTO(usersRepository.save(userEntity));
     }
 
-    public void deleteUsers(Long id) {
+    public void deleteUser(Long id) {
             usersRepository.deleteById(id);
-
     }
 }

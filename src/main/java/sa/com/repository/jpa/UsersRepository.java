@@ -9,4 +9,5 @@ public interface UsersRepository extends SoftDeleteRepository<UserEntity, Long> 
 
     public UserEntity getUserByCompanyName(String companyName);
 
+    public UserEntity findByEmail(String email);
 }
